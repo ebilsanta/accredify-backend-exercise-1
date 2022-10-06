@@ -20,5 +20,14 @@ To retrieve all patients from database
 ## POST: http://localhost:8000/api/patients
 Send a JSON list of patients with valid fields to add to database
 
+# Technical Diagram
+![alt text](https://github.com/ebilsanta/accredify-backend-exercise-1/blob/main/readme_images/technical_diagram.png?raw=true)
+
+# Note about test coverage
+I would like to apologise as I have only achieved 43.5% test coverage as reported by Xdebug.  
+To be honest, I do not have much experience with generating test coverage and testing in general. Moreover, I began this assignment with only  
+basic working knowledge of PHP and hence it took me over 6 hours to learn Laravel and create this. I hope you can grant me some leniency as I am  
+definitely willing to learn but cannot spare any more time for this assignment. Thank you.
+![alt text](https://github.com/ebilsanta/accredify-backend-exercise-1/blob/main/readme_images/test_coverage.png?raw=true)
 
 
