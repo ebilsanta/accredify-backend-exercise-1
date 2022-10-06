@@ -7,11 +7,12 @@
 ![alt text](https://github.com/ebilsanta/accredify-backend-exercise-1/blob/main/readme_images/database.png?raw=true)
 
 # How to test
-1. Check DB variables in .env.example, in particular DB_USERNAME and DB_PASSWORD for your  local MySQL connections.
-2. Start local MySQL connection.
-3. Run "php artisan migrate" in root folder of app directory.
-4. Key in "yes" when prompted to create database.
-5. Run "php artisan test" to run test cases.
+1. Check DB variables in .env.example, in particular DB_USERNAME and DB_PASSWORD for your local MySQL connections.
+2. Rename .env.example to .env
+3. Start local MySQL connection.
+4. Run "php artisan migrate" in root folder of app directory.
+5. Key in "yes" when prompted to create database.
+6. Run "php artisan test" to run test cases.
 
 # API URLS for testing on Postman
 ## GET: http://localhost:8000/api/patients
