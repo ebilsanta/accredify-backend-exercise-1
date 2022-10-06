@@ -2,11 +2,13 @@
 
 namespace Tests\Feature;
 
+use App\Http\Requests\PatientStoreRequest;
+use App\Http\Controllers\PatientsApiController;
 use Tests\TestCase;
 
 class PatientCreateTest extends TestCase
 {
-    public function test_one_valid()
+    public function test_create_one_valid()
     {
         $response = $this->postJson('/api/patients', [
             'patients' => [
@@ -31,7 +33,7 @@ class PatientCreateTest extends TestCase
         ]);
     }
 
-    public function test_multiple_valid()
+    public function test_create_multiple_valid()
     {
         $response = $this->postJson('/api/patients', [
             'patients' => [
@@ -386,110 +388,9 @@ class PatientCreateTest extends TestCase
             'patientNric' => 'S0000000Q',
         ]);
     }
-
-    public function test_missing_field()
+    public function test_example()
     {
-        $response = $this->postJson('/api/patients', [
-            'patients' => [
-                [
-                    "patientNationality" => "SG",
-                    "patientNric" => "S0000000M",
-                    "patientName" => "Tan Chen Chen",
-                    "patientGender" => "Female",
-                    "patientBirthDate" => "1990-01-15",
-                    "patientEmail" => "tanchenchen@gmailcom",
-                    "sampleUniqueId" => "Sample001",
-                    "sampleResults" => "Negative",
-                    "collectedDateTime" => "202-02-01T12:00:00Z",
-                    "effectiveDateTime" => "2021-02-01T12:00:00Z"
-                ],
-            ]
-        ]);
-        $response2 = $this->postJson('/api/patients', [
-            'patients' => [
-                [
-                    "patientNationality" => "SG",
-                    "patientNric" => "S0000000N",
-                    "patientName" => "Tan Chen Chen2",
-                    "patientGender" => "Female",
-                    "patientBirthDate" => "1990-01-15",
-                    "patientEmail" => "tanchenchen2gmail.com",
-                    "sampleUniqueId" => "Sample002",
-                    "sampleResults" => "Negative",
-                    "collectedDateTime" => "2021-0201T12:00:00Z",
-                    "effectiveDateTime" => "2021-02-01T12:00:00Z"
-                ]
-            ]
-        ]);
-        $response3 = $this->postJson('/api/patients', [
-            'patients' => [
-                [
-                    "patientNationality" => "SG",
-                    "patientNric" => "S0000000O",
-                    "patientName" => "Tan Chen Chen2",
-                    "patientGender" => "Female",
-                    "patientBirthDate" => "1990-01-15",
-                    "patientEmail" => "tanchenchen2gmail.com",
-                    "sampleUniqueId" => "Sample002",
-                    "sampleResults" => "Negative",
-                    "collectedDateTime" => "2021-02-01T12:0:00Z",
-                    "effectiveDateTime" => "2021-02-01T12:00:00Z"
-                ]
-            ]
-        ]);
-        $response4 = $this->postJson('/api/patients', [
-            'patients' => [
-                [
-                    "patientNationality" => "SG",
-                    "patientNric" => "S0000000P",
-                    "patientName" => "Tan Chen Chen2",
-                    "patientGender" => "Female",
-                    "patientBirthDate" => "1990-01-15",
-                    "patientEmail" => "tanchenchen2gmail.com",
-                    "sampleUniqueId" => "Sample002",
-                    "sampleResults" => "Negative",
-                    "collectedDateTime" => "2021-02-01T12:0:00Z",
-                    "effectiveDateTime" => "2021-02-01T12:00:00Z"
-                ]
-            ]
-        ]);
-        $response5 = $this->postJson('/api/patients', [
-            'patients' => [
-                [
-                    "patientNationality" => "SG",
-                    "patientNric" => "S0000000Q",
-                    "patientName" => "Tan Chen Chen2",
-                    "patientGender" => "Female",
-                    "patientBirthDate" => "1990-01-15",
-                    "patientEmail" => "tanchenchen2gmail.com",
-                    "sampleUniqueId" => "Sample002",
-                    "sampleResults" => "Negative",
-                    "collectedDateTime" => "2021-02-01T12:0:00",
-                    "effectiveDateTime" => "2021-02-01T12:00:00Z"
-                ]
-            ]
-        ]);
-       
-
-        $response->assertStatus(400);
-        $response2->assertStatus(400);
-        $response3->assertStatus(400);
-        $response4->assertStatus(400);
-        $response5->assertStatus(400);
-        $this->assertDatabaseMissing('patients', [
-            'patientNric' => 'S0000000M',
-        ]);
-        $this->assertDatabaseMissing('patients', [
-            'patientNric' => 'S0000000N',
-        ]);
-        $this->assertDatabaseMissing('patients', [
-            'patientNric' => 'S0000000O',
-        ]);
-        $this->assertDatabaseMissing('patients', [
-            'patientNric' => 'S0000000P',
-        ]);
-        $this->assertDatabaseMissing('patients', [
-            'patientNric' => 'S0000000Q',
-        ]);
+        $response = $this->get('/api/patients');
+        $response->assertStatus(200);
     }
 }

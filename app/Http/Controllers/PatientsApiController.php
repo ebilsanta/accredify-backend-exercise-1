@@ -34,13 +34,5 @@ class PatientsApiController extends Controller
             ]);
         }
         return response('Patients added successfully', 200);
-        
-    }
-
-    public function destroy($patientNric) {
-        $patient = Patient::where('patientNric', $patientNric)->firstorfail()->delete();
-        return [
-            'success' => $patient
-        ];
     }
 }
