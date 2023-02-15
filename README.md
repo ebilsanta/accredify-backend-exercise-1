@@ -20,7 +20,7 @@ To retrieve all patients from database
 ## POST: http://localhost:8000/api/patients
 Send a JSON list of patients with valid fields to add to database
 
-# Technical Diagram
+# Logic Flow Chart
 ![alt text](https://github.com/ebilsanta/accredify-backend-exercise-1/blob/main/readme_images/technical_diagram.png?raw=true)
 
 # Note about test coverage
