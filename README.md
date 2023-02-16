@@ -52,7 +52,7 @@ The local development server should now be accessible at http://127.0.0.1:8000.
 
 ## API Endpoints <a name = "endpoints"></a>
 
-Base URL `http://127.0.0.1:8000`  
+Base URL `http://127.0.0.1:8000/api`  
 
 **Get all patients data**
 
